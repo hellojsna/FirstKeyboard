@@ -9,7 +9,6 @@
 import UIKit
 
 class KeyboardViewController: UIInputViewController {
-    
     var nextKeyboardButton: KeyboardButton!
     var spaceButton: KeyboardButton!
     var shiftButton: KeyboardButton!
@@ -27,7 +26,7 @@ class KeyboardViewController: UIInputViewController {
             self.changedShiftValue()
         }
     }
-    var language:TextString.language = .en
+    var language:TextString.language = .s390
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -334,7 +333,21 @@ class KeyboardViewController: UIInputViewController {
         if isPushedShift {
             switch self.language {
             case .ko:
-                for _ in self.charLine1Buttons {
+                for key in self.charLine1Buttons {
+                    let character = key.getTitle()
+                    switch character {
+                    case "ㅂ":
+                        key.button.setTitle("ㅃ", for: .normal)
+                    case "ㅈ":
+                        key.button.setTitle("ㅉ", for: .normal)
+                    case "ㄷ":
+                        key.button.setTitle("ㄸ", for: .normal)
+                    case "ㄱ":
+                        key.button.setTitle("ㄲ", for: .normal)
+                    case "ㅅ":
+                        key.button.setTitle("ㅆ", for: .normal)
+                    default: break
+                    }
                 }
             case .en:
                 for buttons in [self.charLine1Buttons, self.charLine2Buttons, self.charLine3Buttons] {
@@ -345,13 +358,131 @@ class KeyboardViewController: UIInputViewController {
                     }
                 }
             case .s390:
-                for _ in self.charLine1Buttons {
-                        }
+                for key in self.numberLineButtons {
+                  let character = key.getTitle()
+                  switch character {
+                    case "ᇂ":
+                        key.button.setTitle("ᆽ", for: .normal)
+                    case "ᆻ":
+                        key.button.setTitle("@", for: .normal)
+                    case "ᆸ":
+                        key.button.setTitle("#", for: .normal)
+                    case "ㅛ":
+                        key.button.setTitle("$", for: .normal)
+                    case "ㅠ":
+                        key.button.setTitle("%", for: .normal)
+                    case "ㅑ":
+                        key.button.setTitle("^", for: .normal)
+                    case "ㅖ":
+                        key.button.setTitle("&", for: .normal)
+                    case "ㅢ":
+                        key.button.setTitle("*", for: .normal)
+                    case "ㅜ":
+                        key.button.setTitle("(", for: .normal)
+                    case "ㅋ":
+                        key.button.setTitle(")", for: .normal)
+                    default: break
+                    }
+                }
+                for key in self.charLine1Buttons {
+                  let character = key.getTitle()
+                  switch character {
+                    case "ᆺ":
+                        key.button.setTitle("ᇁ", for: .normal)
+                    case "ᆯ":
+                        key.button.setTitle("ᇀ", for: .normal)
+                    case "ㅕ":
+                        key.button.setTitle("ᆿ", for: .normal)
+                    case "ㅐ":
+                        key.button.setTitle("ㅒ", for: .normal)
+                    case "ㅓ":
+                        key.button.setTitle(";", for: .normal)
+                    case "ㄹ":
+                        key.button.setTitle("<", for: .normal)
+                    case "ㄷ":
+                        key.button.setTitle("7", for: .normal)
+                    case "ㅁ":
+                        key.button.setTitle("8", for: .normal)
+                    case "ㅊ":
+                        key.button.setTitle("9", for: .normal)
+                    case "ㅍ":
+                        key.button.setTitle(">", for: .normal)
+                    default: break
+                    }
+                }
+                for key in self.charLine2Buttons {
+                  let character = key.getTitle()
+                  switch character {
+                    case "ᆼ":
+                        key.button.setTitle("ᆮ", for: .normal)
+                    case "ᆫ":
+                        key.button.setTitle("ᆭ", for: .normal)
+                    case "ㅣ":
+                        key.button.setTitle("ᆰ", for: .normal)
+                    case "ㅏ":
+                        key.button.setTitle("ᆩ", for: .normal)
+                    case "ㅡ":
+                        key.button.setTitle("/", for: .normal)
+                    case "ㄴ":
+                        key.button.setTitle("'", for: .normal)
+                    case "ㅇ":
+                        key.button.setTitle("4", for: .normal)
+                    case "ㄱ":
+                        key.button.setTitle("5", for: .normal)
+                    case "ㅈ":
+                        key.button.setTitle("6", for: .normal)
+                    case "ㅂ":
+                        key.button.setTitle(":", for: .normal)
+                    case "ㅌ":
+                        key.button.setTitle("\"", for: .normal)
+                    default: break
+                    }
+                }
+                for key in self.charLine3Buttons {
+                  let character = key.getTitle()
+                  switch character {
+                    case "ᆷ":
+                        key.button.setTitle("ᆾ", for: .normal)
+                    case "ᆨ":
+                        key.button.setTitle("ᆹ", for: .normal)
+                    case "ㅔ":
+                        key.button.setTitle("ᆱ", for: .normal)
+                    case "ㅗ":
+                        key.button.setTitle("ᆶ", for: .normal)
+                    case "ㅜ":
+                        key.button.setTitle("!", for: .normal)
+                    case "ㅅ":
+                        key.button.setTitle("0", for: .normal)
+                    case "ㅎ":
+                        key.button.setTitle("1", for: .normal)
+                    case ",":
+                        key.button.setTitle("2", for: .normal)
+                    case ".":
+                        key.button.setTitle("3", for: .normal)
+                    case "ㅗ\u{200B}":
+                        key.button.setTitle("?", for: .normal)
+                    default: break
+                }
+                }
             }
         } else {
             switch self.language {
             case .ko:
-                for _ in self.charLine1Buttons {
+                for key in self.charLine1Buttons {
+                    let character = key.getTitle()
+                    switch character {
+                    case "ㅃ":
+                        key.button.setTitle("ㅂ", for: .normal)
+                    case "ㅉ":
+                        key.button.setTitle("ㅈ", for: .normal)
+                    case "ㄸ":
+                        key.button.setTitle("ㄷ", for: .normal)
+                    case "ㄲ":
+                        key.button.setTitle("ㄱ", for: .normal)
+                    case "ㅆ":
+                        key.button.setTitle("ㅅ", for: .normal)
+                    default: break
+                    }
                 }
             case .en:
                 for buttons in [self.charLine1Buttons, self.charLine2Buttons, self.charLine3Buttons] {
@@ -362,18 +493,314 @@ class KeyboardViewController: UIInputViewController {
                     }
                 }
             case .s390:
-                for _ in self.charLine1Buttons {
-
+                for key in self.numberLineButtons {
+                  let character = key.getTitle()
+                  switch character {
+                    case "ᆽ":
+                        key.button.setTitle("ᇂ", for: .normal)
+                    case "@":
+                        key.button.setTitle("ᆻ", for: .normal)
+                    case "#":
+                        key.button.setTitle("ᆸ", for: .normal)
+                    case "$":
+                        key.button.setTitle("ㅛ", for: .normal)
+                    case "%":
+                        key.button.setTitle("ㅠ", for: .normal)
+                    case "^":
+                        key.button.setTitle("ㅑ", for: .normal)
+                    case "&":
+                        key.button.setTitle("ㅖ", for: .normal)
+                    case "*":
+                        key.button.setTitle("ㅢ", for: .normal)
+                    case "(":
+                        key.button.setTitle("ㅜ", for: .normal)
+                    case ")":
+                        key.button.setTitle("ㅋ", for: .normal)
+                    default: break
+                    }
+                }
+                for key in self.charLine1Buttons {
+                  let character = key.getTitle()
+                  switch character {
+                    case "ᇁ":
+                        key.button.setTitle("ᆺ", for: .normal)
+                    case "ᇀ":
+                        key.button.setTitle("ᆯ", for: .normal)
+                    case "ᆿ":
+                        key.button.setTitle("ㅕ", for: .normal)
+                    case "ㅒ":
+                        key.button.setTitle("ㅐ", for: .normal)
+                    case ";":
+                        key.button.setTitle("ㅓ", for: .normal)
+                    case "<":
+                        key.button.setTitle("ㄹ", for: .normal)
+                    case "7":
+                        key.button.setTitle("ㄷ", for: .normal)
+                    case "8":
+                        key.button.setTitle("ㅁ", for: .normal)
+                    case "9":
+                        key.button.setTitle("ㅊ", for: .normal)
+                    case ">":
+                        key.button.setTitle("ㅍ", for: .normal)
+                    default: break
+                    }
+                }
+                for key in self.charLine2Buttons {
+                  let character = key.getTitle()
+                  switch character {
+                    case "ᆮ":
+                        key.button.setTitle("ᆼ", for: .normal)
+                    case "ᆭ":
+                        key.button.setTitle("ᆫ", for: .normal)
+                    case "ᆰ":
+                        key.button.setTitle("ㅣ", for: .normal)
+                    case "ᆩ":
+                        key.button.setTitle("ㅏ", for: .normal)
+                    case "/":
+                        key.button.setTitle("ㅡ", for: .normal)
+                    case "'":
+                        key.button.setTitle("ㄴ", for: .normal)
+                    case "4":
+                        key.button.setTitle("ㅇ", for: .normal)
+                    case "5":
+                        key.button.setTitle("ㄱ", for: .normal)
+                    case "6":
+                        key.button.setTitle("ㅈ", for: .normal)
+                    case ":":
+                        key.button.setTitle("ㅂ", for: .normal)
+                    case "\"":
+                        key.button.setTitle("ㅌ", for: .normal)
+                    default: break
+                    }
+                }
+                for key in self.charLine3Buttons {
+                  let character = key.getTitle()
+                  switch character {
+                    case "ᆾ":
+                        key.button.setTitle("ᆷ", for: .normal)
+                    case "ᆹ":
+                        key.button.setTitle("ᆨ", for: .normal)
+                    case "ᆱ":
+                        key.button.setTitle("ㅔ", for: .normal)
+                    case "ᆶ":
+                        key.button.setTitle("ㅗ", for: .normal)
+                    case "!":
+                        key.button.setTitle("ㅜ", for: .normal)
+                    case "0":
+                        key.button.setTitle("ㅅ", for: .normal)
+                    case "1":
+                        key.button.setTitle("ㅎ", for: .normal)
+                    case "2":
+                        key.button.setTitle(",", for: .normal)
+                    case "3":
+                        key.button.setTitle(".", for: .normal)
+                    case "?":
+                        key.button.setTitle("ㅗ\u{200B}", for: .normal)
+                    default: break
+                    }
                 }
             }
         }
-    }
-    
+}
     @objc func touchUpChartacterKey(_ sender:DKey) {
+            func inputCho(cho:Character) -> Character? {
+                if cho == Character("ㄱ") {
+                    return("ㄱ")
+                }else if cho == Character("ㄲ") {
+                    return("ㄲ")
+                }else if cho == Character("ㄴ") {
+                    return("ㄴ")
+                }else if cho == Character("ㄷ") {
+                    return("ㄷ")
+                }else if cho == Character("ㄸ") {
+                    return("ㄸ")
+                }else if cho == Character("ㄹ") {
+                    return("ㄹ")
+                }else if cho == Character("ㅁ") {
+                    return("ㅁ")
+                }else if cho == Character("ㅂ") {
+                    return("ㅂ")
+                }else if cho == Character("ㅃ") {
+                    return("ㅃ")
+                }else if cho == Character("ㅅ") {
+                    return("ㅅ")
+                }else if cho == Character("ㅆ") {
+                    return("ㅆ")
+                }else if cho == Character("ㅇ") {
+                    return("ㅇ")
+                }else if cho == Character("ㅈ") {
+                    return("ㅈ")
+                }else if cho == Character("ㅉ") {
+                    return("ㅉ")
+                }else if cho == Character("ㅊ") {
+                    return("ㅊ")
+                }else if cho == Character("ㅋ") {
+                    return("ㅋ")
+                }else if cho == Character("ㅌ") {
+                    return("ㅌ")
+                }else if cho == Character("ㅍ") {
+                    return("ㅍ")
+                }else if cho == Character("ㅎ") {
+                    return("ㅎ")
+                } else {
+                return nil;
+                }
+        }
+            func inputJung(jung:Character) -> Character? {
+                if jung == Character("ㅏ") {
+                    return("ㅏ")
+                }else if jung == Character("ㅐ") {
+                    return("ㅐ")
+                }else if jung == Character("ㅑ") {
+                    return("ㅑ")
+                }else if jung == Character("ㅒ") {
+                    return("ㅒ")
+                }else if jung == Character("ㅓ") {
+                    return("ㅓ")
+                }else if jung == Character("ㅔ") {
+                    return("ㅔ")
+                }else if jung == Character("ㅕ") {
+                    return("ㅕ")
+                }else if jung == Character("ㅖ") {
+                    return("ㅖ")
+                }else if jung == Character("ㅗ") {
+                    return("ㅗ")
+                }else if jung == Character("ㅘ") {
+                    return("ㅘ")
+                }else if jung == Character("ㅙ") {
+                    return("ㅙ")
+                }else if jung == Character("ㅚ") {
+                    return("ㅚ")
+                }else if jung == Character("ㅛ") {
+                    return("ㅛ")
+                }else if jung == Character("ㅜ") {
+                    return("ㅜ")
+                }else if jung == Character("ㅝ") {
+                    return("ㅝ")
+                }else if jung == Character("ㅞ") {
+                    return("ㅞ")
+                }else if jung == Character("ㅟ") {
+                    return("ㅟ")
+                }else if jung == Character("ㅠ") {
+                    return("ㅠ")
+                }else if jung == Character("ㅡ") {
+                    return("ㅡ")
+                }else if jung == Character("ㅢ") {
+                    return("ㅢ")
+                }else if jung == Character("ㅣ") {
+                    return("ㅣ")
+                }else {
+                return nil;
+                }
+        }
+            func inputJong(jong:Character) -> Character? {
+                if jong == Character(" ") {
+                    return(" ")
+                }else if jong == Character("ᆨ") {
+                    return("ᆨ")
+                }else if jong == Character("ᆩ") {
+                    return("ᆩ")
+                }else if jong == Character("ㄳ") {
+                    return("ㄳ")
+                }else if jong == Character("ᆫ") {
+                    return("ᆫ")
+                }else if jong == Character("ㄵ") {
+                    return("ㄵ")
+                }else if jong == Character("ᆭ") {
+                    return("ᆭ")
+                }else if jong == Character("ᆮ") {
+                    return("ㄷ")
+                }else if jong == Character("ᆯ") {
+                    return("ᆯ")
+                }else if jong == Character("ᆰ") {
+                    return("ᆰ")
+                }else if jong == Character("ᆱ") {
+                    return("ᆱ")
+                }else if jong == Character("ㄿ") {
+                    return("ㄿ")
+                }else if jong == Character("ᆶ") {
+                    return("ᆶ")
+                }else if jong == Character("ᆷ") {
+                    return("ㅁ")
+                }else if jong == Character("ᆸ") {
+                    return("ᆸ")
+                }else if jong == Character("ᆹ") {
+                    return("ᆹ")
+                }else if jong == Character("ᆺ") {
+                    return("ᆺ")
+                }else if jong == Character("ᆻ") {
+                    return("ᆻ")
+                }else if jong == Character("ᆼ") {
+                    return("ᆼ")
+                }else if jong == Character("ᆽ") {
+                    return("ᆽ")
+                }else if jong == Character("ᆾ") {
+                    return("ᆾ")
+                }else if jong == Character("ᆿ") {
+                    return("ᆿ")
+                }else if jong == Character("ᇀ") {
+                    return("ᇀ")
+                }else if jong == Character("ᇁ") {
+                    return("ᇁ")
+                }else if jong == Character("ᇂ") {
+                    return("ᇂ")
+                } else {
+                return nil;
+                }
+        }
         //insertCharacter
+        var finalcharacter = ""
         if let character = sender.titleLabel?.text {
+            if character == "ㅗ\u{200B}" {
+                finalcharacter = "ㅗ"
+            } else {
+                finalcharacter = character
+            }
+            let Char1 = Character(finalcharacter)
+            let Char2 = Character(finalcharacter)
+            var Char3 = Character(finalcharacter)
+            let cho:[Character] = ["ㄱ","ㄲ","ㄴ","ㄷ","ㄸ","ㄹ","ㅁ","ㅂ","ㅃ","ㅅ","ㅆ","ㅇ","ㅈ","ㅉ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"]
+            let jung:[Character] = ["ㅏ", "ㅐ", "ㅑ", "ㅒ", "ㅓ", "ㅔ", "ㅕ", "ㅖ", "ㅗ", "ㅘ", "ㅙ", "ㅚ", "ㅛ", "ㅜ", "ㅝ","ㅞ", "ㅟ", "ㅠ", "ㅡ", "ㅢ", "ㅣ"]
+            let jong:[Character] = [" ", "ㄱ", "ㄲ", "ㄳ", "ㄴ", "ㄵ", "ㄶ", "ㄷ", "ㄹ", "ㄺ", "ㄻ", "ㄼ", "ㄽ", "ㄾ", "ㄿ","ㅀ", "ㅁ", "ㅂ", "ㅄ", "ㅅ", "ㅆ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"]
+            func hangul(c1:Character,c2:Character,c3:Character) -> Character? {
+                var cho_i = 0
+                var jung_i = 0
+                var jong_i = 0
+                for i in 0 ..< cho.count {
+                    if cho[i] == c1 {
+                        cho_i = i
+                    }
+                }
+                
+                for i in 0 ..< jung.count {
+                    if jung[i] == c2 {
+                        jung_i = i
+                    }
+                }
+                for i in 0 ..< jong.count {
+                    if jong[i] == c3 {
+                        jong_i = i
+                    }
+                }
+                let uniValue:Int = (cho_i * 21 * 28) + (jung_i * 28) + (jong_i) + 0xAC00;
+                if let uni = Unicode.Scalar(uniValue) {
+                    return Character(uni)
+                }
+                
+                return nil
+            }
+            
             UIDevice.current.playInputClick()
-            self.textDocumentProxy.insertText(character)
+            let Choo = inputCho(cho:Char1)
+            let jungg = inputJung(jung:Char1)
+            let jongg = inputJong(jong:Char1)
+            if Choo != nil {
+                self.textDocumentProxy.insertText(String(Choo!))
+            } else if jungg != nil {
+                self.deleteCharacterBeforeCursor()
+                self.textDocumentProxy.insertText(String(hangul(c1:Char1,c2:Char2,c3:Char3)!))
+
+            }
         }
         if isPushedShift { isPushedShift = false }
     }
